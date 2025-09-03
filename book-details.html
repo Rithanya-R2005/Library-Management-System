@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - The Great Gatsby - Library Management System</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/book-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-book-open"></i>
+                <a href="index.html" style="color: white; text-decoration: none;">Library Management System</a>
+            </h1>
+            <nav id="navbar" class="nav"></nav>
+            <div class="user-controls">
+                <div class="user-profile">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="User Avatar" class="avatar">
+                    <span>John Doe</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="book-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="catalog.html">Catalog</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>The Great Gatsby</span>
+            </nav>
+
+            <!-- Book Details Section -->
+            <section class="book-details-section">
+                <div class="book-details-grid">
+                    <!-- Book Cover and Actions -->
+                    <div class="book-cover-section">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=600&fit=crop" alt="The Great Gatsby" id="bookCover" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2702/2702134.png'">
+                            <div class="book-status-badge available">
+                                <i class="fas fa-check-circle"></i>
+                                Available
+                            </div>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-primary btn-large" onclick="borrowBook()">
+                                <i class="fas fa-book"></i>
+                                Borrow Book
+                            </button>
+                            <button class="btn btn-outline btn-large" onclick="reserveBook()">
+                                <i class="fas fa-bookmark"></i>
+                                Reserve Book
+                            </button>
+                            <button class="btn btn-outline btn-large" onclick="addToWishlist()">
+                                <i class="fas fa-heart"></i>
+                                Add to Wishlist
+                            </button>
+                        </div>
+                        <div class="book-quick-info">
+                            <div class="quick-info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Shelf: F-FIT</span>
+                            </div>
+                            <div class="quick-info-item">
+                                <i class="fas fa-copy"></i>
+                                <span>3 copies available</span>
+                            </div>
+                            <div class="quick-info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>30 days loan period</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Information -->
+                    <div class="book-info-section">
+                        <div class="book-header">
+                            <h1>The Great Gatsby</h1>
+                            <div class="book-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.2 out of 5 (1,247 ratings)</span>
+                            </div>
+                        </div>
+
+                        <div class="book-meta">
+                            <div class="meta-item">
+                                <label>Author</label>
+                                <p>F. Scott Fitzgerald</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>ISBN</label>
+                                <p>978-0743273565</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>Publisher</label>
+                                <p>Scribner</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>Publication Date</label>
+                                <p>April 10, 1925</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>Pages</label>
+                                <p>180</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>Language</label>
+                                <p>English</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>Format</label>
+                                <p>Hardcover</p>
+                            </div>
+                            <div class="meta-item">
+                                <label>Subject</label>
+                                <p>Fiction, American Literature, Classic</p>
+                            </div>
+                        </div>
+
+                        <div class="book-description">
+                            <h3>Description</h3>
+                            <p>The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.</p>
+                            <p>A literary classic, The Great Gatsby explores themes of decadence, idealism, resistance to change, social upheaval, and excess, creating a portrait of the Jazz Age or the Roaring Twenties that has been described as a cautionary tale regarding the American Dream.</p>
+                        </div>
+
+                        <div class="book-tags">
+                            <span class="tag">American Literature</span>
+                            <span class="tag">Classic</span>
+                            <span class="tag">Fiction</span>
+                            <span class="tag">Jazz Age</span>
+                            <span class="tag">Romance</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Book Details Tabs -->
+            <section class="book-tabs-section">
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="details">
+                            <i class="fas fa-info-circle"></i>
+                            Details
+                        </button>
+                        <button class="tab-btn" data-tab="reviews">
+                            <i class="fas fa-star"></i>
+                            Reviews
+                        </button>
+                        <button class="tab-btn" data-tab="availability">
+                            <i class="fas fa-clock"></i>
+                            Availability
+                        </button>
+                        <button class="tab-btn" data-tab="related">
+                            <i class="fas fa-book"></i>
+                            Related Books
+                        </button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Details Tab -->
+                        <div class="tab-pane active" id="details">
+                            <div class="details-grid">
+                                <div class="details-card">
+                                    <h3><i class="fas fa-list"></i> Table of Contents</h3>
+                                    <div class="table-of-contents">
+                                        <p>Chapter 1: The Valley of Ashes</p>
+                                        <p>Chapter 2: The Green Light</p>
+                                        <p>Chapter 3: The Great Gatsby</p>
+                                        <p>Chapter 4: The Past</p>
+                                        <p>Chapter 5: The Reunion</p>
+                                        <p>Chapter 6: The Truth</p>
+                                        <p>Chapter 7: The End</p>
+                                    </div>
+                                </div>
+                                <div class="details-card">
+                                    <h3><i class="fas fa-award"></i> Awards & Recognition</h3>
+                                    <ul class="awards-list">
+                                        <li>Modern Library's 100 Best Novels (#2)</li>
+                                        <li>Time Magazine's 100 Best Novels</li>
+                                        <li>BBC's The Big Read (#68)</li>
+                                        <li>Pulitzer Prize Finalist (1926)</li>
+                                    </ul>
+                                </div>
+                                <div class="details-card">
+                                    <h3><i class="fas fa-history"></i> Publication History</h3>
+                                    <div class="publication-history">
+                                        <p><strong>First Edition:</strong> April 10, 1925</p>
+                                        <p><strong>Publisher:</strong> Charles Scribner's Sons</p>
+                                        <p><strong>Initial Print Run:</strong> 20,870 copies</p>
+                                        <p><strong>Current Editions:</strong> Multiple formats available</p>
+                                    </div>
+                                </div>
+                                <div class="details-card">
+                                    <h3><i class="fas fa-language"></i> Translations</h3>
+                                    <div class="translations">
+                                        <p><strong>Spanish:</strong> El Gran Gatsby</p>
+                                        <p><strong>French:</strong> Gatsby le Magnifique</p>
+                                        <p><strong>German:</strong> Der große Gatsby</p>
+                                        <p><strong>Italian:</strong> Il Grande Gatsby</p>
+                                        <p><strong>Japanese:</strong> グレート・ギャツビー</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reviews Tab -->
+                        <div class="tab-pane" id="reviews">
+                            <div class="reviews-header">
+                                <div class="reviews-summary">
+                                    <div class="overall-rating">
+                                        <div class="rating-number">4.2</div>
+                                        <div class="rating-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="rating-count">1,247 ratings</div>
+                                    </div>
+                                    <div class="rating-breakdown">
+                                        <div class="rating-bar">
+                                            <span>5 stars</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill" style="width: 65%"></div>
+                                            </div>
+                                            <span>65%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>4 stars</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill" style="width: 25%"></div>
+                                            </div>
+                                            <span>25%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>3 stars</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill" style="width: 8%"></div>
+                                            </div>
+                                            <span>8%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>2 stars</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill" style="width: 2%"></div>
+                                            </div>
+                                            <span>2%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>1 star</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill" style="width: 0%"></div>
+                                            </div>
+                                            <span>0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" onclick="writeReview()">
+                                    <i class="fas fa-pen"></i>
+                                    Write a Review
+                                </button>
+                            </div>
+
+                            <div class="reviews-list">
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Reviewer" class="reviewer-avatar">
+                                            <div>
+                                                <h4>Sarah Johnson</h4>
+                                                <div class="review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">2 weeks ago</span>
+                                    </div>
+                                    <p class="review-text">"A masterpiece of American literature. Fitzgerald's prose is absolutely beautiful and the story is both heartbreaking and timeless. The themes of the American Dream and social class are as relevant today as they were in the 1920s."</p>
+                                </div>
+
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Reviewer" class="reviewer-avatar">
+                                            <div>
+                                                <h4>Michael Chen</h4>
+                                                <div class="review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">1 month ago</span>
+                                    </div>
+                                    <p class="review-text">"The Great Gatsby perfectly captures the essence of the Jazz Age. The characters are complex and the symbolism is rich. A must-read for anyone interested in classic literature."</p>
+                                </div>
+
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Reviewer" class="reviewer-avatar">
+                                            <div>
+                                                <h4>Emily Rodriguez</h4>
+                                                <div class="review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="review-date">2 months ago</span>
+                                    </div>
+                                    <p class="review-text">"While I appreciate the historical significance and beautiful writing, I found the story a bit slow at times. The characters are well-developed but not always likable."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Availability Tab -->
+                        <div class="tab-pane" id="availability">
+                            <div class="availability-section">
+                                <div class="availability-summary">
+                                    <h3>Current Availability</h3>
+                                    <div class="availability-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-number">3</span>
+                                            <span class="stat-label">Available Copies</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-number">2</span>
+                                            <span class="stat-label">Currently Borrowed</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-number">5</span>
+                                            <span class="stat-label">Total Copies</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="copies-list">
+                                    <h3>Copy Details</h3>
+                                    <div class="copy-item available">
+                                        <div class="copy-info">
+                                            <div class="copy-id">Copy #1</div>
+                                            <div class="copy-location">Shelf F-FIT, Row 3</div>
+                                            <div class="copy-condition">Excellent</div>
+                                        </div>
+                                        <div class="copy-status">
+                                            <span class="status-badge available">Available</span>
+                                            <button class="btn btn-primary btn-sm" onclick="borrowCopy('copy1')">Borrow</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="copy-item available">
+                                        <div class="copy-info">
+                                            <div class="copy-id">Copy #2</div>
+                                            <div class="copy-location">Shelf F-FIT, Row 3</div>
+                                            <div class="copy-condition">Good</div>
+                                        </div>
+                                        <div class="copy-status">
+                                            <span class="status-badge available">Available</span>
+                                            <button class="btn btn-primary btn-sm" onclick="borrowCopy('copy2')">Borrow</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="copy-item available">
+                                        <div class="copy-info">
+                                            <div class="copy-id">Copy #3</div>
+                                            <div class="copy-location">Shelf F-FIT, Row 3</div>
+                                            <div class="copy-condition">Very Good</div>
+                                        </div>
+                                        <div class="copy-status">
+                                            <span class="status-badge available">Available</span>
+                                            <button class="btn btn-primary btn-sm" onclick="borrowCopy('copy3')">Borrow</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="copy-item borrowed">
+                                        <div class="copy-info">
+                                            <div class="copy-id">Copy #4</div>
+                                            <div class="copy-location">Shelf F-FIT, Row 3</div>
+                                            <div class="copy-condition">Good</div>
+                                        </div>
+                                        <div class="copy-status">
+                                            <span class="status-badge borrowed">Borrowed</span>
+                                            <div class="return-date">Due: Jan 20, 2024</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="copy-item borrowed">
+                                        <div class="copy-info">
+                                            <div class="copy-id">Copy #5</div>
+                                            <div class="copy-location">Shelf F-FIT, Row 3</div>
+                                            <div class="copy-condition">Excellent</div>
+                                        </div>
+                                        <div class="copy-status">
+                                            <span class="status-badge borrowed">Borrowed</span>
+                                            <div class="return-date">Due: Jan 25, 2024</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="reservation-info">
+                                    <h3>Reservation Information</h3>
+                                    <p>This book is currently available for immediate borrowing. If all copies are borrowed, you can place a reservation and we'll notify you when a copy becomes available.</p>
+                                    <div class="reservation-actions">
+                                        <button class="btn btn-outline" onclick="reserveBook()">
+                                            <i class="fas fa-bookmark"></i>
+                                            Reserve When Available
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Related Books Tab -->
+                        <div class="tab-pane" id="related">
+                            <div class="related-books">
+                                <h3>Books You Might Also Like</h3>
+                                <div class="related-books-grid">
+                                    <div class="related-book-card">
+                                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop" alt="To Kill a Mockingbird" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2702/2702134.png'">
+                                        <div class="related-book-info">
+                                            <h4>To Kill a Mockingbird</h4>
+                                            <p>Harper Lee</p>
+                                            <div class="related-book-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <span>4.8</span>
+                                            </div>
+                                        </div>
+                                        <a href="book-details.html" class="btn btn-outline btn-sm">View Details</a>
+                                    </div>
+
+                                    <div class="related-book-card">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" alt="1984" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2702/2702134.png'">
+                                        <div class="related-book-info">
+                                            <h4>1984</h4>
+                                            <p>George Orwell</p>
+                                            <div class="related-book-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <span>4.5</span>
+                                            </div>
+                                        </div>
+                                        <a href="book-details.html" class="btn btn-outline btn-sm">View Details</a>
+                                    </div>
+
+                                    <div class="related-book-card">
+                                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop" alt="The Art of Computer Programming" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2702/2702134.png'">
+                                        <div class="related-book-info">
+                                            <h4>The Art of Computer Programming</h4>
+                                            <p>Donald E. Knuth</p>
+                                            <div class="related-book-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <span>4.9</span>
+                                            </div>
+                                        </div>
+                                        <a href="book-details.html" class="btn btn-outline btn-sm">View Details</a>
+                                    </div>
+
+                                    <div class="related-book-card">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" alt="A Brief History of Time" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2702/2702134.png'">
+                                        <div class="related-book-info">
+                                            <h4>A Brief History of Time</h4>
+                                            <p>Stephen Hawking</p>
+                                            <div class="related-book-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <span>4.3</span>
+                                            </div>
+                                        </div>
+                                        <a href="book-details.html" class="btn btn-outline btn-sm">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/book-details.js"></script>
+</body>
+</html>

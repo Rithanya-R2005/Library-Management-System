@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - Library Management System</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-book-open"></i>
+                <a href="index.html" style="color: white; text-decoration: none;">Library Management System</a>
+            </h1>
+            <nav id="navbar" class="nav"></nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-hero">
+            <div class="container">
+                <h2>Book Catalog</h2>
+                <p>Discover thousands of books across various subjects and genres</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-box">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search by title, author, subject, or ISBN...">
+                            <button type="button" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="search-filters">
+                        <div class="filter-group">
+                            <label for="subjectFilter">Subject:</label>
+                            <select id="subjectFilter">
+                                <option value="">All Subjects</option>
+                                <option value="fiction">Fiction</option>
+                                <option value="non-fiction">Non-Fiction</option>
+                                <option value="science">Science</option>
+                                <option value="history">History</option>
+                                <option value="technology">Technology</option>
+                                <option value="literature">Literature</option>
+                                <option value="philosophy">Philosophy</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="availabilityFilter">Availability:</label>
+                            <select id="availabilityFilter">
+                                <option value="">All Books</option>
+                                <option value="available">Available</option>
+                                <option value="borrowed">Borrowed</option>
+                                <option value="reserved">Reserved</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="sortBy">Sort By:</label>
+                            <select id="sortBy">
+                                <option value="title">Title A-Z</option>
+                                <option value="author">Author A-Z</option>
+                                <option value="date">Publication Date</option>
+                                <option value="popularity">Popularity</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-results">
+            <div class="container">
+                <div class="results-header">
+                    <div class="results-count">
+                        <span id="resultsCount">Showing 1-20 of 1,247 books</span>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="categoryBar"></div>
+
+                <div class="books-container" id="booksContainer">
+                    <!-- Sample Books -->
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop" alt="The Great Gatsby" class="book-cover-img">
+                            <div class="book-overlay">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h3>The Great Gatsby</h3>
+                            <p class="author">F. Scott Fitzgerald</p>
+                            <p class="subject">Fiction</p>
+                            <p class="isbn">ISBN: 978-0743273565</p>
+                            <div class="book-meta">
+                                <span class="status available">Available</span>
+                                <span class="location">Shelf: F-FIT</span>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-primary btn-sm">Borrow</button>
+                                <button class="btn btn-outline btn-sm">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=400&fit=crop" alt="To Kill a Mockingbird" class="book-cover-img">
+                            <div class="book-overlay">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h3>To Kill a Mockingbird</h3>
+                            <p class="author">Harper Lee</p>
+                            <p class="subject">Fiction</p>
+                            <p class="isbn">ISBN: 978-0446310789</p>
+                            <div class="book-meta">
+                                <span class="status borrowed">Borrowed</span>
+                                <span class="location">Shelf: F-LEE</span>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-outline btn-sm">Reserve</button>
+                                <button class="btn btn-outline btn-sm">Notify When Available</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" alt="1984" class="book-cover-img">
+                            <div class="book-overlay">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h3>1984</h3>
+                            <p class="author">George Orwell</p>
+                            <p class="subject">Fiction</p>
+                            <p class="isbn">ISBN: 978-0451524935</p>
+                            <div class="book-meta">
+                                <span class="status available">Available</span>
+                                <span class="location">Shelf: F-ORW</span>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-primary btn-sm">Borrow</button>
+                                <button class="btn btn-outline btn-sm">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop" alt="The Art of Computer Programming" class="book-cover-img">
+                            <div class="book-overlay">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h3>The Art of Computer Programming</h3>
+                            <p class="author">Donald E. Knuth</p>
+                            <p class="subject">Technology</p>
+                            <p class="isbn">ISBN: 978-0201896831</p>
+                            <div class="book-meta">
+                                <span class="status available">Available</span>
+                                <span class="location">Shelf: T-KNU</span>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-primary btn-sm">Borrow</button>
+                                <button class="btn btn-outline btn-sm">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop" alt="A Brief History of Time" class="book-cover-img">
+                            <div class="book-overlay">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h3>A Brief History of Time</h3>
+                            <p class="author">Stephen Hawking</p>
+                            <p class="subject">Science</p>
+                            <p class="isbn">ISBN: 978-0553380163</p>
+                            <div class="book-meta">
+                                <span class="status reserved">Reserved</span>
+                                <span class="location">Shelf: S-HAW</span>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-outline btn-sm">Join Waitlist</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <div class="book-cover">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop" alt="The Republic" class="book-cover-img">
+                            <div class="book-overlay">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="book-details">
+                            <h3>The Republic</h3>
+                            <p class="author">Plato</p>
+                            <p class="subject">Philosophy</p>
+                            <p class="isbn">ISBN: 978-0872201361</p>
+                            <div class="book-meta">
+                                <span class="status available">Available</span>
+                                <span class="location">Shelf: P-PLA</span>
+                            </div>
+                            <div class="book-actions">
+                                <button class="btn btn-primary btn-sm">Borrow</button>
+                                <button class="btn btn-outline btn-sm">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <div class="page-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span class="page-ellipsis">...</span>
+                        <button class="page-btn">62</button>
+                    </div>
+                    <button class="page-btn">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Library Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>
