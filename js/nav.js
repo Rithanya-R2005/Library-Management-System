@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		navContainer.appendChild(createLink('catalog.html', 'Catalog', currentPage === 'catalog.html'));
 		if (role === 'user') {
 			navContainer.appendChild(createLink('user-dashboard.html', 'Dashboard', currentPage === 'user-dashboard.html'));
-			navContainer.appendChild(createLink('user-manage.html', 'Manage', currentPage === 'user-manage.html'));
+			//navContainer.appendChild(createLink('user-manage.html', 'Manage', currentPage === 'user-manage.html'));
 			const logout = createLink('#', 'Logout', false);
 			logout.addEventListener('click', function(e) {
 				e.preventDefault();

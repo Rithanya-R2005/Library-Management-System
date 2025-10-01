@@ -153,12 +153,32 @@ function setupUserProfile() {
 }
 
 // Toggle user menu
-function toggleUserMenu() {
+function toggleUserMenu(event) {
+    // Prevent event from bubbling up to document
+    event.stopPropagation();
+    
     const menu = document.querySelector('.user-menu');
     if (!menu) {
         createUserMenu();
+        
+        // Add click event listener to document to close menu when clicking outside
+        setTimeout(() => {
+            document.addEventListener('click', closeUserMenu);
+        }, 100);
     } else {
         menu.remove();
+        document.removeEventListener('click', closeUserMenu);
+    }
+}
+
+// Close user menu when clicking outside
+function closeUserMenu(event) {
+    const menu = document.querySelector('.user-menu');
+    const userProfile = document.querySelector('.user-profile');
+    
+    if (menu && !menu.contains(event.target) && !userProfile.contains(event.target)) {
+        menu.remove();
+        document.removeEventListener('click', closeUserMenu);
     }
 }
 
@@ -192,22 +212,32 @@ function createUserMenu() {
         </div>
     `;
 
-    // Position the menu
+    // Position the menu - Fixed positioning relative to the header
     const userProfile = document.querySelector('.user-profile');
-    const rect = userProfile.getBoundingClientRect();
-    menu.style.cssText = `
-        position: absolute;
-        top: ${rect.bottom + 10}px;
-        right: 20px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        z-index: 1000;
-        min-width: 200px;
-        animation: slideDown 0.3s ease;
-    `;
-
-    document.body.appendChild(menu);
+    const headerContainer = document.querySelector('.header .container');
+    
+    if (userProfile && headerContainer) {
+        const rect = userProfile.getBoundingClientRect();
+        
+        menu.style.cssText = `
+            position: absolute;
+            top: ${rect.height + 5}px;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+            min-width: 200px;
+            animation: slideDown 0.3s ease;
+        `;
+        
+        // Append to the header container instead of body for proper positioning
+        headerContainer.appendChild(menu);
+    } else {
+        console.error('Could not find user profile or header container elements');
+        // Fallback to body append if header container not found
+        document.body.appendChild(menu);
+    }
 
     // Add menu styles
     if (!document.getElementById('user-menu-styles')) {

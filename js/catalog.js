@@ -1,6 +1,20 @@
 // Catalog JavaScript for Library Management System
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Handle book cover image loading
+    const bookCovers = document.querySelectorAll('.book-cover-img');
+    bookCovers.forEach(img => {
+        img.onerror = function() {
+            // If the local image fails to load, the onerror attribute in HTML will use the fallback URL
+            console.log(`Image failed to load: ${img.src}`);
+        };
+        
+        img.onload = function() {
+            // Image loaded successfully
+            console.log(`Image loaded successfully: ${img.src}`);
+        };
+    });
+    
     const categories = [
         { id: 'fiction', name: 'Fiction' },
         { id: 'non-fiction', name: 'Non-Fiction' },
@@ -43,7 +57,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = document.createElement('button');
         btn.className = 'category-btn';
         btn.dataset.category = id;
-        btn.textContent = name;
+        
+        // Create image element for category button
+        let imgSrc = '';
+        if (id === 'fiction') imgSrc = 'images/books/great-gatsby.svg';
+        else if (id === 'non-fiction') imgSrc = 'images/books/brief-history.svg';
+        else if (id === 'science') imgSrc = 'images/books/brief-history.svg';
+        else if (id === 'technology') imgSrc = 'images/books/art-of-programming.svg';
+        else if (id === 'history') imgSrc = 'images/books/republic.svg';
+        else if (id === 'philosophy') imgSrc = 'images/books/republic.svg';
+        else if (id === 'all') imgSrc = 'images/book-icon.svg';
+        
+        if (imgSrc) {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = name;
+            img.className = 'category-icon';
+            btn.appendChild(img);
+        }
+        
+        const text = document.createElement('span');
+        text.textContent = name;
+        btn.appendChild(text);
+        
         btn.addEventListener('click', () => {
             document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');

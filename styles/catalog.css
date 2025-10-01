@@ -179,22 +179,24 @@
 }
 
 .book-cover {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    height: 200px;
+    background: white;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid #e1e5e9;
 }
 
 .book-cover-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0) invert(1);
-    opacity: 0.8;
+    object-fit: contain;
+    opacity: 1;
     transition: transform 0.3s ease;
+    padding: 10px;
+    background-color: white;
 }
 
 .book-overlay {
@@ -294,52 +296,33 @@
     border-radius: 20px;
 }
 
-/* Pagination */
-.pagination {
+/* Catalog Image Container */
+.catalog-image-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.page-btn {
-    background: white;
-    border: 2px solid #e1e5e9;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #666;
+.catalog-footer-image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+.catalog-image-caption {
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
     font-weight: 600;
-}
-
-.page-btn:hover:not(:disabled) {
-    border-color: #667eea;
-    color: #667eea;
-    background: rgba(102, 126, 234, 0.1);
-}
-
-.page-btn.active {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
-}
-
-.page-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.page-numbers {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.page-ellipsis {
-    color: #666;
-    padding: 0 0.5rem;
+    max-width: 80%;
+    line-height: 1.5;
 }
 
 /* List View */
@@ -384,6 +367,15 @@
     border-radius: 999px;
     cursor: pointer;
     transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.category-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
 .category-btn:hover {
